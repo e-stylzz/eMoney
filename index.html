@@ -1,23 +1,36 @@
 <!DOCTYPE html>
+<html ng-app="app">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>eMoney</title>
   <meta name="description" content="Online Checkbook Application">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  </head>
+  <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+  <link href="bower_components/font-awesome/css/font-awesome.css" rel="stylesheet">
+  <link href="bower_components/toastr/toastr.css" rel="stylesheet">
+</head>
+
 <body>
   <ul class="menu">
-    <li><a href="#/view1">view1</a></li>
-    <li><a href="#/view2">view2</a></li>
+    <li><a ui-sref="home" title="Home"><i class="fa fa-home"></i> Home</a></li>
   </ul>
 
-  <div ng-view></div>
+  <div ui-view></div>
 
+  <div>Footer</div>
 
+  <script src="bower_components/jquery/dist/jquery.js"></script>
   <script src="bower_components/angular/angular.js"></script>
-  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="bower_components/moment/moment.js"></script>
+  <script src="bower_components/toastr/toastr.js"></script>
+  <script src="bower_components/angularfire/dist/angularfire.js"></script>
+  <script src="bower_components/firebase/firebase.js"></script>
+
   <script src="app/app.js"></script>
-  <script src="app/controllers/view2.js"></script>
+  <script src="app/config.js"></script>
+  <script src="app/controllers/homeCtrl.js"></script>
 </body>
 </html>
