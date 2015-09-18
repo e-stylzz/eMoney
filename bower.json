@@ -1,0 +1,31 @@
+{
+  "name": "eMoney",
+  "version": "0.0.1",
+  "homepage": "https://github.com/e-stylzz/eMoney",
+  "authors": [
+    "e-stylzz <eric.barb@gmail.com>"
+  ],
+  "description": "Online checkbook app",
+  "main": "index.html",
+  "keywords": [
+    "eMoney",
+    "AngularJS",
+    "Firebase"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.6",
+    "angular-route": "~1.4.6",
+    "bootstrap": "~3.3.5",
+    "font-awesome": "~4.4.0",
+    "moment": "~2.10.6",
+    "toastr": "~2.1.2"
+  }
+}
