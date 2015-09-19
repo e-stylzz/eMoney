@@ -36,6 +36,30 @@
                 url: '/home',
                 templateUrl: 'app/partials/home.html',
                 controller: 'homeCtrl'
+            })
+            .state('register', {
+                url: '/register',
+                templateUrl: 'app/partials/register.html',
+                controller: 'registerCtrl'
+            })
+            .state('login', {
+                url: '/login',
+                templateUrl: 'app/partials/login.html',
+                controller: 'loginCtrl'
+            })
+            .state('account', {
+                url: '/account',
+                templateUrl: 'app/partials/account.html',
+                controller: 'accountCtrl'
+            })
+            .state('accounts', {
+                url: '/accounts',
+                templateUrl: 'app/partials/accounts.html',
+                controller: 'accountsCtrl'
+            })
+            .state('logout', {
+                url: '/logout',
+                controller: 'logoutCtrl'
             });
     }
 })();

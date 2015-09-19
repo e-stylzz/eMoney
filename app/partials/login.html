@@ -1,0 +1,42 @@
+<div ng-if="authData">
+    <p>Hello, {{ authData.password.email }}</p>
+    <button class="btn-warning" ng-click="auth.$unauth()">Logout</button>
+</div>
+
+<div ng-if="!authData">
+    <p>Welcome, please login</p>
+    <form class="form-horizontal" ng-submit="login(logininfo)">
+        <fieldset>
+            <legend>Login</legend>
+            <div class="form-group">
+                <label for="inputEmail" class="col-lg-2 control-label">Email</label>
+                <div class="col-lg-10">
+                    <input type="text" class="form-control" id="inputEmail" placeholder="Email" ng-model="logininfo.email">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="inputPassword" class="col-lg-2 control-label">Password</label>
+                <div class="col-lg-10">
+                    <input type="password" class="form-control" id="inputPassword" placeholder="Password" ng-model="logininfo.password">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-lg-10 col-lg-offset-2">
+                    <button type="reset" class="btn btn-default">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+    <div ng-show="err.code === 'INVALID_EMAIL'">
+        Incorrect email
+    </div>
+    <div ng-show="err.code === 'INVALID_PASSWORD'">
+        Incorrect password
+    </div>
+    <div ng-show="err.code === 'INVALID_USER'">
+        Incorrect username
+    </div>
+</div>
