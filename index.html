@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html ng-app="app">
+<html lang="en" ng-app="app">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>eMoney</title>
   <meta name="description" content="Online Checkbook Application">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="bower_components/normalize-css/normalize.css" rel="stylesheet">
   <!--<link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">-->
   <link href="app/content/bootswatch-sandstone.css" rel="stylesheet">
   <link href="bower_components/font-awesome/css/font-awesome.css" rel="stylesheet">
@@ -28,20 +29,20 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a ui-sref="accounts">Accounts <span class="sr-only">(current)</span></a></li>
-        <li><a ui-sref="categories">Categories</a></li>
+        <li ng-show="loggedIn"><a ui-sref="accounts">Accounts <span class="sr-only">(current)</span></a></li>
+        <li ng-show="loggedIn"><a ui-sref="categories">Categories</a></li>
       </ul>
 
-      <form class="navbar-form navbar-left" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-      </form>
+      <!--<form class="navbar-form navbar-left" role="search">-->
+        <!--<div class="form-group">-->
+          <!--<input type="text" class="form-control" placeholder="Search">-->
+        <!--</div>-->
+        <!--<button type="submit" class="btn btn-default">Submit</button>-->
+      <!--</form>-->
 
       <ul class="nav navbar-nav navbar-right">
-        <li><a ui-sref="register">Register</a></li>
-        <li class="dropdown">
+        <li ng-hide="loggedIn"><a ui-sref="register">Register</a></li>
+        <li class="dropdown" ng-show="loggedIn">
           <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profile <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a ui-sref="edit-profile">Edit Profile</a></li>
@@ -50,8 +51,8 @@
             <li><a ui-sref="reset-password">Reset Password</a></li>
           </ul>
         </li>
-        <li><a ui-sref="login">Login</a></li>
-        <li><a ui-sref="logout">Logout</a></li>
+        <li ng-hide="loggedIn"><a ui-sref="login">Login</a></li>
+        <li ng-show="loggedIn"><a ui-sref="logout" ng-click="auth.$unauth()">Logout</a></li>
       </ul>
     </div>
   </div>
@@ -61,11 +62,11 @@
   <div ui-view></div>
 </div>
 
-  <footer class="footer">
-    <div class="container">
-      <p class="text-muted">Copyright 2015 Stylzz Productions</p>
-    </div>
-  </footer>
+<footer class="footer">
+  <div class="container">
+    <p class="text-muted">Copyright 2015 Stylzz Productions v<span app-version></span></p>
+  </div>
+</footer>
 
   <script src="bower_components/jquery/dist/jquery.js"></script>
   <script src="bower_components/angular/angular.js"></script>
@@ -79,11 +80,14 @@
   <script src="app/app.js"></script>
   <script src="app/config.js"></script>
   <script src="app/services/authSvc.js"></script>
+  <script src="app/services/dataSvc.js"></script>
   <script src="app/controllers/homeCtrl.js"></script>
   <script src="app/controllers/registerCtrl.js"></script>
   <script src="app/controllers/loginCtrl.js"></script>
   <script src="app/controllers/accountCtrl.js"></script>
   <script src="app/controllers/accountsCtrl.js"></script>
-  <script src="app/controllers/logoutCtrl.js"></script>
+  <script src="app/controllers/resetCtrl.js"></script>
+  <script src="app/controllers/welcomeCtrl.js"></script>
+  <script src="app/controllers/categoriesCtrl.js"></script>
 </body>
 </html>

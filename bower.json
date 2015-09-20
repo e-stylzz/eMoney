@@ -27,6 +27,7 @@
     "bootstrap": "~3.3.5",
     "font-awesome": "~4.4.0",
     "moment": "~2.10.6",
+    "normalize-css": "normalize.css#~3.0.3",
     "toastr": "~2.1.2"
   }
 }

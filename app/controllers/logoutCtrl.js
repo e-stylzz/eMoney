@@ -6,7 +6,7 @@
     angular
         .module('app')
         .controller('logoutCtrl', function(Auth) {
-            console.log("Hello from the Logout Controller");
-            Auth.$unauth()
+            //console.log("Hello from the Logout Controller");
+            //Auth.$unauth()
         })
-});
+})();

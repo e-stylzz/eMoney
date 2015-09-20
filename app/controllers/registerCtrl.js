@@ -5,20 +5,36 @@
 (function () {
     angular
         .module('app')
-        .controller('registerCtrl', function($scope, ref){
+        .controller('registerCtrl', function($scope, Auth, $location, Data){
             console.log("Hello from the Register Controller");
 
             $scope.register = function (reginfo) {
-                ref.createUser({
-                    email : $scope.reginfo.email,
-                    password : $scope.reginfo.password
-                }, function(error, userData) {
-                    if (error) {
-                        console.log("Error creating user: ", error);
-                    } else {
-                        console.log("Boom! ", userData.uid);
-                    }
-                })
+                $scope.err = null;
+                Auth.$createUser(reginfo)
+                    .then(function() {
+                        return Auth.$authWithPassword(reginfo);
+                    })
+                    .then(function(user) {
+                        var uid = user.uid,
+                            userData = Data.getObject(['users', uid]);
+
+                        userData.$loaded()
+                            .then(function () {
+                                userData.email = $scope.reginfo.email;
+                                userData.first = $scope.reginfo.first;
+                                userData.$save();
+                            })
+                    })
+                    .then(function() {
+                        $location.path('/welcome');
+                    },
+                    function(err) {
+                        $scope.err = errMessage(err);
+                    });
+            }
+
+            function errMessage(err) {
+                return angular.isObject(err) && err.code? err.code : err + '';
             }
         })
 })();

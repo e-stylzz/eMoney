@@ -6,7 +6,9 @@
     angular
         .module('app')
         .config(config)
-        .run(function($rootScope, $state) {
+        .constant("ref", new Firebase("https://emoney2.firebaseio.com"))
+        .constant("version", "0.0.1")
+        .run(function($rootScope, $state, Auth) {
             $rootScope.$state = $state;
 
             $rootScope.$on("$stateChangeError", function (event, to, toParams, from, fromParams, error) {
@@ -26,6 +28,11 @@
                     $rootScope.toStateParams = toParams;
                 }
             });
+
+            Auth.$onAuth(function(user) {
+                $rootScope.loggedIn = !!user;
+                $rootScope.auth = Auth;
+            })
         });
 
     function config($stateProvider, $urlRouterProvider) {
@@ -59,7 +66,22 @@
             })
             .state('logout', {
                 url: '/logout',
-                controller: 'logoutCtrl'
+                templateUrl: 'app/partials/logout.html'
+            })
+            .state('reset', {
+                url: '/reset',
+                templateUrl: 'app/partials/reset.html',
+                controller: 'resetCtrl'
+            })
+            .state('welcome', {
+                url: '/welcome',
+                templateUrl: 'app/partials/welcome.html',
+                controller: 'welcomeCtrl'
+            })
+            .state('categories', {
+                url: '/categories',
+                templateUrl: 'app/partials/categories.html',
+                controller: 'categoriesCtrl'
             });
     }
 })();
