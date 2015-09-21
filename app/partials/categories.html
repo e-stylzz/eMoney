@@ -1,38 +1,19 @@
-<div class="panel panel-default">
-    <div class="panel-heading">Add a Category</div>
+<div class="panel panel-success">
+    <div class="panel-heading">Categories (Expenses)</div>
     <div class="panel-body">
-        <form class="form-inline" ng-submit="addCategory(categoryInfo)">
+        <form class="form-inline" ng-submit="addExpenseCategory(expenseCat)">
             <fieldset>
                 <div class="form-group">
-                    <div class="">
-                        <input type="text" class="form-control" id="inputCategoryName" placeholder="Category Name" ng-model="categoryInfo.category">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="">
-                        <select class="form-control" id="inputCategoryType" ng-model="categoryInfo.type">
-                            <option value="">Type...</option>
-                            <option value="expense">Expense</option>
-                            <option value="income">Income</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="">
-                        <button type="submit" class="form-control btn btn-primary">Submit</button>
+                    <label class="sr-only" for="inputExpenseCategoryName">Category Name</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="inputExpenseCategoryName" placeholder="Category Name" ng-model="expenseCat.category">
+                        <span class="input-group-btn">
+                            <button type="submit" class="btn btn-success">Add</button>
+                        </span>
                     </div>
                 </div>
             </fieldset>
         </form>
-    </div>
-</div>
-
-
-<div class="panel panel-default">
-    <div class="panel-heading">Categories (Expenses)</div>
-    <div class="panel-body">
         <ul class="list-group">
             <li class="list-group-item">Bills: Cable</li>
             <li class="list-group-item">Bills: Electric</li>
@@ -40,9 +21,22 @@
     </div>
 </div>
 
-<div class="panel panel-default">
+<div class="panel panel-warning">
     <div class="panel-heading">Categories (Income)</div>
     <div class="panel-body">
+        <form class="form-horizontal" ng-submit="addIncomeCategory(incomeCat)">
+            <fieldset>
+                <div class="form-group">
+                    <label class="sr-only" for="inputIncomeCategoryName">Category Name</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="inputIncomeCategoryName" placeholder="Category Name" ng-model="incomeCat.category">
+                        <span class="input-group-btn">
+                            <button type="submit" class="btn btn-success">Add</button>
+                        </span>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
         <ul class="list-group">
             <li class="list-group-item">Paycheck</li>
             <li class="list-group-item">Misc</li>
