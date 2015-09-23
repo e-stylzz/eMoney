@@ -10,14 +10,18 @@
 
             $scope.register = function (reginfo) {
                 $scope.err = null;
+
                 Auth.$createUser(reginfo)
                     .then(function() {
+                        // signs user in
                         return Auth.$authWithPassword(reginfo);
                     })
                     .then(function(user) {
+                        //creates a container for the user
                         var uid = user.uid,
                             userData = Data.getObject(['users', uid]);
 
+                        //populates fields for the user into the users container
                         userData.$loaded()
                             .then(function () {
                                 userData.email = $scope.reginfo.email;

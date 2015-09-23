@@ -1,15 +1,27 @@
-<div class="panel panel-default">
+<div class="panel panel-warning">
     <div class="panel-heading">Accounts</div>
     <div class="panel-body">
+
+        <form class="form-inline" ng-submit="addAccount(account)">
+            <fieldset>
+                <div class="form-group">
+                    <label class="sr-only" for="inputAccountName">Account Name</label>
+                    <input type="text" class="form-control" id="inputAccountName" placeholder="Account Name" ng-model="account.name" ng-required="true">
+
+                    <label class="sr-only" for="inputAccountBalance">Balance</label>
+                    <input type="number" class="form-control" id="inputAccountBalance" placeholder="Balance" ng-model="account.balance" ng-required="true" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" step="0.01">
+
+                    <button type="submit" class="btn btn-success">Add</button>
+                </div>
+            </fieldset>
+        </form>
+
         <ul class="list-group">
-            <li class="list-group-item">
-                <span class="badge">$700.00</span>
-                <a ui-sref="account">Checking</a>
+            <li class="list-group-item" ng-repeat="account in accounts">
+                <span class="badge">${{(account.balance / 100).toFixed(2)}}</span>
+                <a ui-sref="account">{{account.name}}</a>
             </li>
-            <li class="list-group-item">
-                <span class="badge">$14,500</span>
-                <a ui-sref="account">Savings</a>
-            </li>
+
         </ul>
     </div>
 </div>

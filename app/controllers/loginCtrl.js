@@ -18,12 +18,12 @@
                 Auth
                     .$authWithPassword(logininfo)
                     .then(function(authData) {
-                        console.log("Login success! Logged in as : ", authData.uid);
                         $location.path('/home');
+
                     })
                     .catch(function (error) {
                         $scope.err = error;
-                        console.log("Authentication failed: ", error);
+                        //console.log("Authentication failed: ", error);
                         $location.path('/login')
                     })
             }
