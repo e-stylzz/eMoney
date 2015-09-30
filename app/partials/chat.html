@@ -1,0 +1,41 @@
+<p>Chat Page</p>
+
+<form class="form-inline" ng-submit="postMessage(message)">
+    <fieldset>
+        <div class="form-group">
+            <label for="inputMessage">Message</label>
+            <input type="text" class="form-control" id="inputMessage" placeholder="Chat Message" ng-model="message.message" ng-required="true">
+            <button type="submit" class="btn btn-success">Submit</button>
+        </div>
+    </fieldset>
+</form>
+
+<form class="form-inline" ng-submit="subscribe(subscribe)">
+    <fieldset>
+        <div class="form-group">
+            <label for="inputSubscribe">Room</label>
+            <input type="text" class="form-control" id="inputSubscribe" placeholder="Chat Room" ng-model="subscribe.room" ng-required="true">
+            <button type="submit" class="btn btn-success">Subscribe</button>
+        </div>
+    </fieldset>
+</form>
+
+<form class="form-inline" ng-submit="createChannel(channel)">
+    <fieldset>
+        <div class="form-group">
+            <label for="inputCreate">Create Room</label>
+            <input type="text" class="form-control" id="inputCreate" placeholder="Create Room" ng-model="channel.name" ng-required="true">
+            <button type="submit" class="btn btn-success">Create</button>
+        </div>
+    </fieldset>
+</form>
+
+<p>Channels</p>
+<ul>
+    <li ng-repeat="channel in channels">{{channel}}</li>
+</ul>
+
+<p>Messages</p>
+<ul>
+    <li ng-repeat="message in messages">{{message}}</li>
+</ul>

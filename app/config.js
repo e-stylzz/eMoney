@@ -82,6 +82,16 @@
                 url: '/categories',
                 templateUrl: 'app/partials/categories.html',
                 controller: 'categoriesCtrl'
-            });
+            })
+            .state('upload', {
+                url: '/upload',
+                templateUrl: 'app/partials/upload.html',
+                controller: 'uploadCtrl'
+            })
+            .state('chat', {
+                url: '/chat',
+                templateUrl: 'app/partials/chat.html',
+                controller: 'chatCtrl'
+            })
     }
 })();

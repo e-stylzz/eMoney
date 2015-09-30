@@ -1,0 +1,9 @@
+<form class="form-inline" ng-submit="addDocument(doc)">
+    <fieldset>
+        <div class="form-group">
+            <label for="fileUpload">Add Document (PDF)</label>
+            <input type="file" id="fileUpload" accept="application/pdf" ng-model="doc.document" >
+            <button type="submit" class="btn btn-success" ng-disabled="true">Add</button>
+        </div>
+    </fieldset>
+</form>

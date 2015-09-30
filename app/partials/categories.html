@@ -1,4 +1,4 @@
-<div class="panel panel-success">
+<div class="panel panel-warning">
     <div class="panel-heading">Categories (Expenses)</div>
     <div class="panel-body">
         <form class="form-inline" ng-submit="addExpenseCategory(expenseCat)">
@@ -15,13 +15,13 @@
             </fieldset>
         </form>
         <ul class="list-group">
-            <li class="list-group-item">Bills: Cable</li>
-            <li class="list-group-item">Bills: Electric</li>
+            <li class="list-group-item" ng-repeat="category in expenseCategories">{{category.category}}</li>
         </ul>
+        <div ng-if="(!expenseCategories)">You have no expense categories yet, why don't you create some</div>
     </div>
 </div>
 
-<div class="panel panel-warning">
+<div class="panel panel-success">
     <div class="panel-heading">Categories (Income)</div>
     <div class="panel-body">
         <form class="form-horizontal" ng-submit="addIncomeCategory(incomeCat)">
@@ -38,9 +38,8 @@
             </fieldset>
         </form>
         <ul class="list-group">
-            <li class="list-group-item">Paycheck</li>
-            <li class="list-group-item">Misc</li>
-            <li class="list-group-item">Jigalow Work</li>
+            <li class="list-group-item" ng-repeat="category in incomeCategories">{{category.category}}</li>
         </ul>
+        <div ng-if="(!incomeCategories)">You have no income categories yet, why don't you create some</div>
     </div>
 </div>

@@ -31,6 +31,8 @@
       <ul class="nav navbar-nav">
         <li ng-show="loggedIn"><a ui-sref="accounts">Accounts <span class="sr-only">(current)</span></a></li>
         <li ng-show="loggedIn"><a ui-sref="categories">Categories</a></li>
+        <li><a ui-sref="upload">Upload</a></li>
+        <li><a ui-sref="chat">Chat</a></li>
       </ul>
 
       <!--<form class="navbar-form navbar-left" role="search">-->
@@ -77,6 +79,9 @@
   <script src="bower_components/angularfire/dist/angularfire.js"></script>
   <script src="bower_components/firebase/firebase.js"></script>
 
+  <script src="http://cdn.pubnub.com/pubnub.min.js"></script>
+  <script src="bower_components/pubnub-angular/lib/pubnub-angular.js"></script>
+
   <script src="app/app.js"></script>
   <script src="app/config.js"></script>
   <script src="app/services/authSvc.js"></script>
@@ -89,5 +94,7 @@
   <script src="app/controllers/resetCtrl.js"></script>
   <script src="app/controllers/welcomeCtrl.js"></script>
   <script src="app/controllers/categoriesCtrl.js"></script>
+  <script src="app/controllers/uploadCtrl.js"></script>
+  <script src="app/controllers/chatCtrl.js"></script>
 </body>
 </html>

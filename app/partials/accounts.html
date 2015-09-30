@@ -18,7 +18,8 @@
 
         <ul class="list-group">
             <li class="list-group-item" ng-repeat="account in accounts">
-                <span class="badge">${{(account.balance / 100).toFixed(2)}}</span>
+                <!--<span class="badge">${{(account.balance / 100).toFixed(2)}}</span>-->
+                <span class="badge">{{(account.balance / 100) | currency}}</span>
                 <a ui-sref="account">{{account.name}}</a>
             </li>
 
